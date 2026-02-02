@@ -1,6 +1,7 @@
-import { CreditCard, Truck, Headphones, ArrowRight } from 'lucide-react';
-import { Card } from './ui/card';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { CreditCard, Truck, Headphones, ArrowRight } from "lucide-react";
+import { Card } from "./ui/card";
+import logo from "../assets/logo.png";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface HomePageProps {
   onNavigate: (view: string) => void;
@@ -10,19 +11,19 @@ export function HomePage({ onNavigate }: HomePageProps) {
   const services = [
     {
       icon: CreditCard,
-      title: 'Pagos Seguros',
-      description: 'Múltiples métodos de pago con protección garantizada'
+      title: "Pagos Seguros",
+      description: "Múltiples métodos de pago con protección garantizada",
     },
     {
       icon: Truck,
-      title: 'Envío Express',
-      description: 'Entrega rápida a todo Ecuador en 24-48 horas'
+      title: "Envío Express",
+      description: "Entrega rápida a todo Ecuador en 24-48 horas",
     },
     {
       icon: Headphones,
-      title: 'Atención 24/7',
-      description: 'Soporte personalizado en todo momento'
-    }
+      title: "Atención 24/7",
+      description: "Soporte personalizado en todo momento",
+    },
   ];
 
   return (
@@ -37,30 +38,39 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   Nueva Colección 2026
                 </span>
               </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
-                Estilo Urbano,
-                <br />
-                <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
-                  Actitud Única
-                </span>
-              </h1>
-              
+
+              {/* Logo + Headline */}
+              <div className="flex items-center gap-4">
+                <img
+                  src={logo}
+                  alt="Urban Style EC"
+                  className="h-20 md:h-28 lg:h-32 w-auto"
+                />
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight">
+                  Estilo Urbano,
+                  <br />
+                  <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
+                    Actitud Única
+                  </span>
+                </h1>
+              </div>
+
               <p className="text-lg text-gray-600 max-w-lg">
-                Descubre las últimas tendencias en moda urbana. 
-                Calidad premium, diseños exclusivos y la mejor experiencia de compra en Ecuador.
+                Descubre las últimas tendencias en moda urbana. Calidad premium,
+                diseños exclusivos y la mejor experiencia de compra en Ecuador.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
-                  onClick={() => onNavigate('catalog')}
+                  onClick={() => onNavigate("catalog")}
                   className="px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center gap-2"
                 >
                   Explorar Catálogo
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <button
-                  onClick={() => onNavigate('catalog')}
+                  onClick={() => onNavigate("catalog")}
                   className="px-8 py-4 bg-white border-2 border-gray-200 text-gray-900 rounded-xl hover:border-gray-300 hover:shadow-md transition-all duration-200"
                 >
                   Ver Ofertas
@@ -86,7 +96,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card 
+              <Card
                 key={index}
                 className="p-8 rounded-2xl border border-gray-100 bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
@@ -94,12 +104,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   <div className="p-4 bg-gradient-to-r from-pink-50 to-orange-50 rounded-2xl">
                     <Icon className="w-8 h-8 text-pink-600" />
                   </div>
-                  <h3 className="text-xl">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {service.description}
-                  </p>
+                  <h3 className="text-xl">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
                 </div>
               </Card>
             );
@@ -110,18 +116,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
       {/* Featured Categories */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl mb-4">
-            Categorías Destacadas
-          </h2>
+          <h2 className="text-3xl md:text-4xl mb-4">Categorías Destacadas</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Encuentra exactamente lo que buscas en nuestra selección curada de las mejores prendas urbanas
+            Encuentra exactamente lo que buscas en nuestra selección curada de
+            las mejores prendas urbanas
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <Card 
+          <Card
             className="group relative overflow-hidden rounded-2xl border-0 cursor-pointer h-80"
-            onClick={() => onNavigate('catalog')}
+            onClick={() => onNavigate("catalog")}
           >
             <ImageWithFallback
               src="https://images.unsplash.com/photo-1604882767135-b41fac508fff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwY2xvdGhpbmclMjByYWNrfGVufDF8fHx8MTc2OTg0ODY1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
@@ -139,9 +144,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </div>
           </Card>
 
-          <Card 
+          <Card
             className="group relative overflow-hidden rounded-2xl border-0 cursor-pointer h-80"
-            onClick={() => onNavigate('catalog')}
+            onClick={() => onNavigate("catalog")}
           >
             <ImageWithFallback
               src="https://images.unsplash.com/photo-1533849808790-5eeda0c42660?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMGZhc2hpb24lMjBsaWZlc3R5bGV8ZW58MXx8fHwxNzY5ODQ4NjUyfDA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -169,10 +174,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
               ¿Listo para renovar tu estilo?
             </h2>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg">
-              Únete a miles de clientes satisfechos y descubre por qué somos la tienda de moda urbana #1 en Ecuador
+              Únete a miles de clientes satisfechos y descubre por qué somos la
+              tienda de moda urbana #1 en Ecuador
             </p>
             <button
-              onClick={() => onNavigate('catalog')}
+              onClick={() => onNavigate("catalog")}
               className="px-8 py-4 bg-white text-gray-900 rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-200"
             >
               Comenzar a Comprar
